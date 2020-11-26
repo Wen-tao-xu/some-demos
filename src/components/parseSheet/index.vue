@@ -2,7 +2,7 @@
  * @Author: xwt
  * @Date: 2020-11-24 17:04:59
  * @LastEditors: xwt
- * @LastEditTime: 2020-11-26 16:21:29
+ * @LastEditTime: 2020-11-26 16:34:24
  * @Description: 插件地址：https://github.com/SheetJS/sheetjs
  * @FilePath: \some-demos\src\components\parseSheet\index.vue
 -->
@@ -53,29 +53,23 @@ export default {
     }
   },
   methods: {
-    handleRemove(file, fileList) {
-      console.log(file, fileList)
-    },
-    handlePreview(file) {
-      console.log(file)
-    },
-    beforeRemove(file, fileList) {
-      console.log(fileList)
-      return this.$confirm(`确定移除 ${file.name}？`)
-    },
+    // 下载excel模板
     downLoadTemplate() {
-      let data = [['产品编号', '产品名称', '数量', '入库单价(￥)'], ['100', '产品A', '99', '1000']]
+      let data = [
+          { name:"用户名", gender:"性别", age:"年龄" },
+          { name: 1,  gender: 2,  age: 3},
+        ]
       let start = Date.now()
       let ws_name = 'Sheet1',
         filename = '模板.xlsx',
         wb = XLSX.utils.book_new(),
-        ws = XLSX.utils.aoa_to_sheet(data)
+        ws = XLSX.utils.json_to_sheet(data, { header:["name","gender","age"], skipHeader:true })
 
       XLSX.utils.book_append_sheet(wb, ws, ws_name)
       XLSX.writeFile(wb, filename)
       console.log((Date.now() - start)/1000)
     },
-    // 上传的文件
+    // 上传并解析
     async uploadFile(param) {
       let start = Date.now()
       const workbook = await readXLSX(param.file)
@@ -90,7 +84,20 @@ export default {
       console.log((Date.now() - start)/1000)
       
     },
-    // change 上传覆盖
+
+    handleRemove(file, fileList) {
+      console.log(file, fileList)
+    },
+    
+    handlePreview(file) {
+      console.log(file)
+    },
+
+    beforeRemove(file, fileList) {
+      console.log(fileList)
+      return this.$confirm(`确定移除 ${file.name}？`)
+    },
+
     handleChange(file, fileList) {
       if (fileList.length > 0) {
         this.fileList = [fileList[fileList.length - 1]]
