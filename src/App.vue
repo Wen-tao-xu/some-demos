@@ -2,7 +2,7 @@
  * @Author: xwt
  * @Date: 2020-09-27 10:21:55
  * @LastEditors: xwt
- * @LastEditTime: 2020-11-24 16:42:38
+ * @LastEditTime: 2020-11-26 16:10:11
  * @Description: Do not edit
  * @FilePath: \some-demos\src\App.vue
 -->
@@ -17,28 +17,35 @@
       >
       </el-option>
     </el-select>
-    <flowChart />
+    <component :is="selection"/>
   </div>
 </template>
 
 <script>
 import flowChart from '@/components/flowChart'
+import parseSheet from '@/components/parseSheet'
+
 export default {
   name: 'App',
   components: {
     flowChart,
+    parseSheet
   },
   data() {
     return {
-      selection: 'flow-chart',
+      selection: 'flowChart',
       options: [
         {
-          value: 'flow-chart',
+          value: 'flowChart',
           label: '流程图'
+        },
+        {
+          value: 'parseSheet',
+          label: 'EXCEL解析'
         },
       ]
     }
-  }
+  },
 }
 </script>
 
