@@ -2,7 +2,7 @@
  * @Author: xwt
  * @Date: 2020-09-27 10:21:55
  * @LastEditors: xwt
- * @LastEditTime: 2020-11-26 16:10:11
+ * @LastEditTime: 2020-12-04 10:20:25
  * @Description: Do not edit
  * @FilePath: \some-demos\src\App.vue
 -->
@@ -24,12 +24,14 @@
 <script>
 import flowChart from '@/components/flowChart'
 import parseSheet from '@/components/parseSheet'
+import parseMD from '@/components/parseMD'
 
 export default {
   name: 'App',
   components: {
     flowChart,
-    parseSheet
+    parseSheet,
+    parseMD,
   },
   data() {
     return {
@@ -42,6 +44,10 @@ export default {
         {
           value: 'parseSheet',
           label: 'EXCEL解析'
+        },
+        {
+          value: 'parseMD',
+          label: 'markdown解析'
         },
       ]
     }
