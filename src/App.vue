@@ -25,6 +25,7 @@
 import flowChart from '@/components/flowChart'
 import parseSheet from '@/components/parseSheet'
 import parseMD from '@/components/parseMD'
+import markdownEditor from '@/components/markdownEditor'
 
 export default {
   name: 'App',
@@ -32,6 +33,7 @@ export default {
     flowChart,
     parseSheet,
     parseMD,
+    markdownEditor,
   },
   data() {
     return {
@@ -49,6 +51,10 @@ export default {
           value: 'parseMD',
           label: 'markdown解析'
         },
+        {
+          value: 'markdownEditor',
+          label: 'markdown编辑器',
+        }
       ]
     }
   },
@@ -67,7 +73,6 @@ html {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   height: 100%;
   min-height: 100%;

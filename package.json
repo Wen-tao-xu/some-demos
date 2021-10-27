@@ -10,6 +10,9 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "element-ui": "^2.14.1",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^7.3.1",
+    "tui-editor": "^1.4.10",
     "vue": "^2.6.11",
     "xlsx": "^0.16.9"
   },
