@@ -13,6 +13,16 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
 
+//复制粘贴指令
+Vue.directive('paste', {
+  bind(el, binding) {
+    el.addEventListener('paste', function (event) {
+      //这里直接监听元素的粘贴事件
+      binding.value(event)
+    })
+  },
+})
+
 Vue.config.productionTip = false
 
 new Vue({
