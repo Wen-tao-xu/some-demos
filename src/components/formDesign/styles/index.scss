@@ -1,0 +1,305 @@
+$primary-color: #0056ff;
+$primary-color-danger: #f35555;
+$primary-color-prompt: #979cb2;
+$primary-active-color: #ecf5ff;
+$primary-background-color: #f9f9f9;
+$primary-border-color: #e9ebef;
+.form-design {
+  height: 100%;
+  background-color: #fff;
+  .el-icon-delete {
+    color: $primary-color-danger;
+    font-size: 20px;
+  }
+  .left-number-input {
+    .el-input-number {
+      width: 100%;
+      input {
+        text-align: left !important;
+      }
+    }
+  }
+  &__body {
+    height: 100%;
+  }
+  &__main {
+    background-color: $primary-background-color;
+    padding-top: 10px;
+  }
+  .fields-list {
+    border-right: 1px solid $primary-border-color;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    .divider::after {
+      content: '';
+      display: block;
+      background-color: #dcdfe6;
+      height: 1px;
+      margin: 20px 0;
+    }
+    .fields-item {
+      padding: 10px;
+      border: 1px solid $primary-border-color;
+      border-radius: 3px;
+      text-align: center;
+      margin-bottom: 16px;
+      cursor: move;
+      transition: 0.3s linear;
+      user-select: none;
+      &:hover {
+        border-color: $primary-color;
+      }
+    }
+  }
+  .widget-config {
+    padding: 0 10px;
+    padding-bottom: 40px;
+    font-size: 14px;
+    .collapse-title {
+      font-size: 14px;
+    }
+  }
+  .right-aside {
+    border-left: 1px solid $primary-border-color;
+    height: 100%;
+    position: relative;
+    .btn-wrap {
+      position: sticky;
+      top: 0;
+      left: 0;
+      background-color: #fff;
+      z-index: 1;
+    }
+  }
+  .widget-form-list {
+    padding-bottom: 20px;
+  }
+  .widget-form-template,
+  .widget-form-section,
+  .widget-form-table {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px dashed $primary-color-prompt;
+    cursor: move;
+    &__body {
+      min-height: 260px;
+      padding: 20px;
+      background-color: #fff;
+      .ghost {
+        opacity: 0.5;
+        background: white;
+        border-left: 5px solid $primary-color;
+        box-sizing: border-box;
+        font-size: 0;
+        content: '';
+        overflow: hidden;
+        padding: 0 !important;
+        position: relative;
+        outline: none 0;
+        height: 100%;
+        min-height: 45px;
+        width: 0 !important;
+        min-width: 0 !important;
+        margin: 1px 2px 0 2px;
+      }
+    }
+  }
+
+  .widget-form-template,
+  .widget-form-section,
+  .widget-form-table,
+  .widget-form-item {
+    position: relative;
+    &.active {
+      outline: 2px solid $primary-color;
+      outline-offset: -1px;
+    }
+    .widget-action-delete {
+      position: absolute;
+      bottom: -90%;
+      right: 10px;
+      z-index: 1;
+    }
+  }
+  .widget-form-section,
+  .widget-form-table {
+    .widget-action-delete {
+      bottom: -15px;
+    }
+  }
+  .widget-form-table {
+    &__body .widget-action-delete {
+      bottom: -26px;
+    }
+  }
+  .widget-form-item-table {
+    .widget-action-delete {
+      bottom: -20px;
+    }
+  }
+
+  .widget-form-template {
+    border: 1px solid $primary-border-color;
+    margin-bottom: 10px;
+    &__header {
+      font-size: 16px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      border-bottom: 1px solid $primary-border-color;
+      background-color: $primary-background-color;
+      .el-icon-delete {
+        color: #c5d2e7;
+      }
+      .left {
+        display: flex;
+        .gray-txt {
+          color: $primary-color-prompt;
+          padding-right: 15px;
+          margin-right: 15px;
+          border-right: 1px solid $primary-border-color;
+        }
+      }
+      .center {
+        text-align: center;
+      }
+      .right {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+    &__body {
+      border: none;
+    }
+  }
+  .widget-form-section,
+  .widget-form-table {
+    &__header {
+      font-size: 14px;
+      font-weight: bold;
+      border-left: 3px solid $primary-color-prompt;
+      padding-left: 5px;
+      margin: 10px 20px 0 20px;
+    }
+  }
+  .widget-form-table {
+    .el-row {
+      display: flex;
+    }
+    .el-col {
+      flex-shrink: 0;
+    }
+    &__body {
+      padding-top: 10px;
+      min-height: 200px;
+      .el-table tr {
+        th {
+          height: 58px;
+        }
+        td {
+          height: 65px;
+        }
+      }
+      .widget-form-item {
+        height: 100%;
+        padding: 6px;
+        margin: 0;
+        // border: 1px solid $primary-border-color;
+        .el-table {
+          height: 100%;
+          .el-table__body-wrapper {
+            height: calc(100% - 58px);
+            .el-table__body {
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .widget-form-item {
+    cursor: move;
+    &__body {
+      .el-input-number,
+      .el-select {
+        width: 80%;
+      }
+      .el-radio {
+        margin-bottom: 8px;
+      }
+    }
+    &.required {
+      .widget-form-item__label::before,
+      .el-table__header .cell::before {
+        content: '*';
+        color: $primary-color-danger;
+        margin-right: 4px;
+      }
+      .el-table__header .index-column .cell::before {
+        display: none;
+      }
+    }
+  }
+  .el-table {
+    .widget-form-item {
+      &__body {
+        .el-input-number,
+        .el-select {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .widget-config,
+  .widget-form-table {
+    .index-column {
+      .delete-btn {
+        display: none;
+      }
+      .index-txt {
+        display: inline-block;
+      }
+    }
+    .index-column:hover {
+      .delete-btn {
+        display: inline-block;
+      }
+      .index-txt {
+        display: none;
+      }
+    }
+  }
+
+  .widget-config {
+    .collapse-title {
+      display: inline-block;
+      color: #979cb2;
+      margin-right: 18px;
+    }
+    .custom-tooltip {
+      position: relative;
+      z-index: 1;
+    }
+    .el-radio {
+      margin-bottom: 15px;
+    }
+    .el-radio:last-child {
+      margin-bottom: 0;
+    }
+    .el-form-item {
+      margin-bottom: 15px;
+    }
+    .select-option-item {
+      display: flex;
+      margin-bottom: 10px;
+      .el-input {
+        margin-right: 10px;
+      }
+    }
+  }
+}
