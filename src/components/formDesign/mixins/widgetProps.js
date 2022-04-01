@@ -61,7 +61,6 @@ export default {
       for (let i = 0; i < indexs.length; i++) {
         let v = indexs[i]
         let key = keys[i]
-        list = currentItem[key]
         lenList[i] = currentItem[key].length
         if (currentItem[key] && currentItem[key][v]) {
           currentItem = currentItem[key][v]
